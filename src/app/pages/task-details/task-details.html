@@ -1,0 +1,31 @@
+<section class="details-page">
+  <ng-container *ngIf="!taskNotFound; else missing">
+    <div class="details-card">
+      <header class="details-header">
+        <h2>{{ task?.title }}</h2>
+        <span class="badge" [class.completed]="task?.completed">
+          {{ taskStatus() }}
+        </span>
+      </header>
+
+      <p class="details-desc">{{ task?.description }}</p>
+      <p class="details-meta">Due date: {{ task?.dueDate }}</p>
+
+      <div class="actions">
+        <button class="btn-toggle" (click)="toggleComplete()">
+          {{ task?.completed ? 'Mark Uncompleted' : 'Mark Completed' }}
+        </button>
+        <button class="btn-delete" (click)="deleteTask()">Delete Task</button>
+        <a routerLink="/" class="btn-cancel">Back to list</a>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #missing>
+    <div class="details-empty">
+      <h3>Task not found</h3>
+      <p>There is no task with id {{ taskId }}.</p>
+      <a routerLink="/" class="btn-cancel">Return to task list</a>
+    </div>
+  </ng-template>
+</section>

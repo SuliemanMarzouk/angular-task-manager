@@ -1,0 +1,78 @@
+.task-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.task-list__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.task-list__items {
+  display: grid;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.task-card.completed {
+  border-color: #65a30d;
+  opacity: 0.85;
+  text-decoration: line-through;
+}
+
+.task-card__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  flex: 1;
+}
+
+.task-card__main p {
+  margin: 0.2rem 0;
+  color: #475569;
+}
+
+.task-card__main small {
+  color: #94a3b8;
+}
+
+.task-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-delete {
+  border: 0;
+  background: #f87171;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+}

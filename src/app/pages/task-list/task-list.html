@@ -1,0 +1,29 @@
+<section class="task-list">
+  <header class="task-list__header">
+    <h2>Tasks</h2>
+    <p>{{ openCount() }} active / {{ tasks().length }} total</p>
+  </header>
+
+  <ul class="task-list__items">
+    <li *ngFor="let task of tasks()" class="task-card" [class.completed]="task.completed">
+      <div class="task-card__main">
+        <input
+          type="checkbox"
+          [checked]="task.completed"
+          (change)="toggleComplete(task)"
+          aria-label="Mark task complete"
+        />
+        <div>
+          <strong>{{ task.title }}</strong>
+          <p>{{ task.description }}</p>
+          <small>Due {{ task.dueDate }}</small>
+        </div>
+      </div>
+
+      <div class="task-card__actions">
+        <a [routerLink]="['/task', task.id]" class="link">Details</a>
+        <button type="button" class="btn-delete" (click)="delete(task)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</section>

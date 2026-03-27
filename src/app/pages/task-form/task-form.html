@@ -1,0 +1,49 @@
+<section class="task-form">
+  <h2>Add New Task</h2>
+
+  <label>
+    Title
+    <input
+      type="text"
+      [value]="title()"
+      (input)="title.set($any($event.target).value)"
+      placeholder="e.g. Finish report"
+      required
+    />
+  </label>
+
+  <label>
+    Description
+    <textarea
+      rows="4"
+      [value]="description()"
+      (input)="description.set($any($event.target).value)"
+      placeholder="Task details"
+      required
+    ></textarea>
+  </label>
+
+  <label>
+    Due date
+    <input
+      type="date"
+      [value]="dueDate()"
+      (input)="dueDate.set($any($event.target).value)"
+      required
+    />
+  </label>
+
+  <label class="switch">
+    <input
+      type="checkbox"
+      [checked]="completed()"
+      (change)="completed.set($any($event.target).checked)"
+    />
+    <span>Completed</span>
+  </label>
+
+  <div class="form-actions">
+    <button class="btn-primary" type="button" [disabled]="!isFormValid()" (click)="onSubmit()">Save Task</button>
+    <button class="btn-cancel" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</section>
